@@ -123,10 +123,8 @@ public static class ARAVRInput
 #if PC
             // 마우스의 스크린 좌표 얻어오기
             Vector3 pos = Input.mousePosition;
-
             // z 값은 0.7m로 설정
             pos.z = 0.7f;
-
             // 스크린 좌표를 월드 좌표로 변환
             pos = Camera.main.ScreenToWorldPoint(pos);
 
@@ -313,8 +311,7 @@ else
             coroutineObj.AddComponent<CoroutineInstance>();
         }
 
-        // 이미지 플레이중인 진동 코루틴은 정지
-
+        // 이미 플레이중인 진동 코루틴은 정지
         CoroutineInstance.coroutineInstance.StopAllCoroutines();
         CoroutineInstance.coroutineInstance.StartCoroutine(VibrationCoroutine(duration, frequency, amplitude, hand));
 #elif Vive
